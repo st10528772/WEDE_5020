@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ============================================================
+     PAGE: Enquiry (enquiry.html)
+     DESCRIPTION: Allows visitors to submit a product or service
+     enquiry to Makro via an embedded Google Form. The page uses
+     a grocery store background image to reinforce the retail theme.
+     AUTHOR: [Palesa Dikolane]
+     STUDENT NUMBER: [St10528772]
+     MODULE: WEDE5020
+     DATE:29 May 2026
+     ============================================================ -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Submit a product or service enquiry to Makro South Africa. We will respond within 24 hours.">
+  <meta name="keywords" content="Makro enquiry, contact form, product enquiry, South Africa, wholesale, customer service">
+  <title>Enquiry | Makro</title>
+  <link rel="stylesheet" href="css/style_sheet.css">
+</head>
+
+<!-- body class="enquiry" activates the grocery background image
+     and flex centred layout defined in style_sheet.css -->
+<body class="enquiry">
+
+  <!-- ============================================================
+       HEADER: Logo, brand name, and navigation. Identical across
+       all five pages.
+       ============================================================ -->
+  <header>
+    <div class="header-top">
+      <img src="images/makro_logo.png" alt="Makro Logo" class="makro_logo">
+      <h1>Makro</h1>
+    </div>
+    <nav class="navigation">
+      <table>
+        <tr>
+          <td><a href="index.html">Home</a></td>
+          <td><a href="about_us.html">About Us</a></td>
+          <td><a href="services_or_products.html">Products</a></td>
+          <!-- Enquiry is the active/current page -->
+          <td><a href="enquiry.html" class="active">Enquiry</a></td>
+          <td><a href="contact_us.html">Contact Us</a></td>
+        </tr>
+      </table>
+    </nav>
+  </header>
+  <!-- ===== END HEADER ===== -->
+
+  <!-- ============================================================
+       MAIN: Enquiry page — heading and embedded Google Form.
+       The form-card div provides a white background card over the
+       grocery store background image for readability.
+       ============================================================ -->
+  <main>
+    <!-- White card wrapping the heading and Google Form -->
+    <div class="form-card">
+      <h2>Enquiry Form</h2>
+      <p>Please complete the form below. We will get back to you within 24 hours.</p>
+
+      <!-- ========================================================
+           GOOGLE FORM EMBED: Embeds the Makro customer enquiry
+           form. The iframe src points to the Google Forms embed
+           URL. title is required for screen reader accessibility.
+           width is set to 100% via CSS to be responsive.
+           ======================================================== -->
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfTgQbLN1yqiCkL_MBMBNFD15LDkX7irCifVcFDzjQqNLZqtA/viewform?embedded=true"
+        width="100%"
+        height="1488"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="Makro Customer Enquiry Form">
+        Loading…
+      </iframe>
+      <!-- ===== END GOOGLE FORM ===== -->
+    </div>
+  </main>
+  <!-- ===== END MAIN ===== -->
+
+  <footer>
+    <p>&copy; 2026 Makro. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

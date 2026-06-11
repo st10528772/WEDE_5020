@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ============================================================
+     PAGE: Contact Us (contact_us.html)
+     DESCRIPTION: Provides Makro's contact details (phone, email,
+     address, trading hours), a contact Google Form, and embedded
+     Google Maps for six branch locations across South Africa.
+     AUTHOR: [Palesa Dikolane]
+     STUDENT NUMBER: [St10528772]
+     MODULE: WEDE5020
+     DATE:29 May 2026
+     ============================================================ -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Makro South Africa. Find our phone number, email, trading hours, and branch locations in Woodmead, Centurion, Silver Lakes, Mpumalanga, Bloemfontein, and Cape Town.">
+  <meta name="keywords" content="Makro contact, Makro branches, Woodmead, Centurion, Silver Lakes, Bloemfontein, Cape Gate, trading hours, South Africa">
+  <title>Contact Us | Makro</title>
+  <link rel="stylesheet" href="css/style_sheet.css">
+</head>
+
+<!-- body class="contact_us" activates the flex-column layout for
+     <main> defined in style_sheet.css under body.contact_us -->
+<body class="contact_us">
+
+  <!-- ============================================================
+       HEADER: Logo, brand name, and navigation. Identical across
+       all five pages.
+       ============================================================ -->
+  <header>
+    <div class="header-top">
+      <img src="images/makro_logo.png" alt="Makro Logo" class="makro_logo">
+      <h1>Makro</h1>
+    </div>
+    <nav class="navigation">
+      <table>
+        <tr>
+          <td><a href="index.html">Home</a></td>
+          <td><a href="about_us.html">About Us</a></td>
+          <td><a href="services_or_products.html">Products</a></td>
+          <td><a href="enquiry.html">Enquiry</a></td>
+          <!-- Contact Us is the active/current page -->
+          <td><a href="contact_us.html" class="active">Contact Us</a></td>
+        </tr>
+      </table>
+    </nav>
+  </header>
+  <!-- ===== END HEADER ===== -->
+
+  <!-- ============================================================
+       MAIN: Contact page content — contact info card, form,
+       and six branch location maps.
+       ============================================================ -->
+  <main>
+
+    <h2>Contact Us</h2>
+
+    <!-- ==========================================================
+         CONTACT INFO CARD: Phone, email, address, trading hours —
+         displayed in a red card for visual impact.
+         ========================================================== -->
+    <div class="contact-info-card">
+      <h3>Get in Touch</h3>
+
+      <!-- Phone — tel: URI enables one-tap calling on mobile -->
+      <p>&#128222; <a href="tel:0860400999" style="color:#FFD700;">086 040 0999</a></p>
+
+      <!-- Email — mailto: opens the user's email client -->
+      <p>&#9993; <a href="mailto:makrobusiness@makro.co.za" style="color:#FFD700;">makrobusiness@makro.co.za</a></p>
+
+      <!-- Physical address -->
+      <p>&#128205; Makro Woodmead, Waterval Crescent South, Woodmead, Sandton, 2054</p>
+
+      <h4 style="color:#FFD700; margin-top:16px;">Trading Hours</h4>
+      <p>Monday to Saturday: 08:00 – 17:00</p>
+      <p>Sunday and Public Holidays: Closed</p>
+    </div>
+    <!-- ===== END CONTACT INFO CARD ===== -->
+
+    <!-- ==========================================================
+         CONTACT FORM: Embedded Google Form for customer messages.
+         class="form" applies the centred, max-width style from CSS.
+         ========================================================== -->
+    <section>
+      <div class="response">YOU WILL RECEIVE A RESPONSE WITHIN 24 HOURS</div>
+
+      <iframe
+        class="form"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSep6L3UGVoKMecTy41jVskuraPcoEjbRr7GkWOxckpJ1n5kjg/viewform?embedded=true"
+        width="100%"
+        height="1123"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="Makro Contact Form">
+        Loading…
+      </iframe>
+    </section>
+    <!-- ===== END CONTACT FORM ===== -->
+
+    <!-- ==========================================================
+         BRANCH LOCATIONS: Six Google Maps in a 2-column grid.
+         Each map uses loading="lazy" to improve page performance.
+         The title attribute is required for screen reader access.
+         ========================================================== -->
+    <section>
+      <h3>Our Branches</h3>
+      <p>Visit us at one of our six branches across South Africa.</p>
+
+      <!-- 2-column responsive grid — stacks to 1 column on mobile -->
+      <div class="maps-grid">
+
+        <!-- Branch 1: Makro Woodmead, Gauteng -->
+        <div class="map-item">
+          <h4>Makro Woodmead</h4>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.2105179942214!2d28.089581474620392!3d-26.059375558089812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e957261cb87d2a1%3A0x69ccfd0485bd93a0!2sMakro%20Woodmead!5e0!3m2!1sen!2sza!4v1776374019195!5m2!1sen!2sza"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Google Map — Makro Woodmead, Gauteng">
+          </iframe>
+        </div>
+
+        <!-- Branch 2: Makro Mpumalanga -->
+        <div class="map-item">
+          <h4>Makro Mpumalanga</h4>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1842079.5091895163!2d28.280811973973726!3d-25.611177890495206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smakro%20mpumalanga!5e0!3m2!1sen!2sza!4v1776374121811!5m2!1sen!2sza"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Google Map — Makro Mpumalanga">
+          </iframe>
+        </div>
+
+        <!-- Branch 3: Makro Centurion, Gauteng -->
+        <div class="map-item">
+          <h4>Makro Centurion</h4>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3590.1021159976885!2d28.193456172850876!3d-25.86611630006949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9565d3bf25e699%3A0xb194dd745334633b!2sMakro%20Centurion!5e0!3m2!1sen!2sza!4v1776374160222!5m2!1sen!2sza"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Google Map — Makro Centurion, Gauteng">
+          </iframe>
+        </div>
+
+        <!-- Branch 4: Makro Silver Lakes, Gauteng -->
+        <div class="map-item">
+          <h4>Makro Silver Lakes</h4>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.8612792599424!2d28.34995097460766!3d-25.775145146635968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e955e8f4ee81a2f%3A0x11ac92ab3732bca9!2sMakro%20Silver%20Lakes!5e0!3m2!1sen!2sza!4v1776374198444!5m2!1sen!2sza"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Google Map — Makro Silver Lakes, Gauteng">
+          </iframe>
+        </div>
+
+        <!-- Branch 5: Makro Bloemfontein, Free State -->
+        <div class="map-item">
+          <h4>Makro Bloemfontein</h4>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3485.305625887337!2d26.154704674765334!3d-29.12617458930327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e8fc4bfa921c373%3A0x7d159b5da864d4a7!2sMakro%20Bloemfontein!5e0!3m2!1sen!2sza!4v1776374266928!5m2!1sen!2sza"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Google Map — Makro Bloemfontein, Free State">
+          </iframe>
+        </div>
+
+        <!-- Branch 6: Makro Cape Gate, Western Cape -->
+        <div class="map-item">
+          <h4>Makro Cape Gate</h4>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6786272.841936538!2d9.465611775000005!3d-33.84817249999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc56cbea39f3b7%3A0x79d385fbb5dcefe9!2sMakro%20Cape%20Gate!5e0!3m2!1sen!2sza!4v1776374783146!5m2!1sen!2sza"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Google Map — Makro Cape Gate, Western Cape">
+          </iframe>
+        </div>
+
+      </div>
+      <!-- ===== END MAPS GRID ===== -->
+    </section>
+    <!-- ===== END BRANCH LOCATIONS ===== -->
+
+  </main>
+  <!-- ===== END MAIN ===== -->
+
+  <footer>
+    <p>&copy; 2026 Makro. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
