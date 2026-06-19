@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ============================================================
+     PAGE: Homepage (index.html)
+     DESCRIPTION: The main landing page for the Makro website.
+     Introduces the brand with a full-width hero image, highlights
+     the one-stop-shop value proposition, and links visitors to
+     the products page via a Shop Now button.
+     AUTHOR: [Palesa Dikolane]
+     STUDENT NUMBER: [St10528772]
+     MODULE: WEDE5020
+     DATE:29 May 2026
+     ============================================================ -->
+
+<head>
+  <!-- Sets the character encoding so special characters display correctly -->
+  <meta charset="UTF-8">
+
+  <!-- Makes the page scale correctly on mobile and tablet screens -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Description shown in Google search results (SEO) -->
+  <meta name="description" content="Makro South Africa — your one-stop warehouse retailer offering groceries, household items, electronics, and outdoor goods at wholesale prices.">
+
+  <!-- Keywords to help search engines categorise this page (SEO) -->
+  <meta name="keywords" content="Makro, wholesale, South Africa, groceries, household, retail, Massmart, one-stop shop, bulk buying">
+
+  <!-- Title shown in the browser tab — unique per page -->
+  <link rel="canonical" href="https://makro-poe.netlify.app/index.html">
+  <title>Home | Makro</title>
+
+  <!-- Links the single external CSS stylesheet shared across all pages -->
+  <link rel="stylesheet" href="css/style_sheet.css">
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER: Contains the Makro logo, the site h1 brand name,
+       and the main navigation menu. Repeated on all five pages.
+       ============================================================ -->
+  <header>
+
+    <!-- Logo and brand name sit side by side using the header-top flex row -->
+    <div class="header-top">
+      <!-- Makro logo — alt text for accessibility and SEO -->
+      <img src="images/makro_logo.png" alt="Makro Logo" class="makro_logo">
+
+      <!-- Site brand name heading — uses Makro red from CSS -->
+      <h1>Makro</h1>
+    </div>
+
+    <!-- ========================================================
+         NAVIGATION MENU: Full-width red nav bar. Each link fills
+         its cell. class="active" marks the current page.
+         ======================================================== -->
+    <button class="menu-toggle" aria-label="Open navigation menu">☰</button>
+    <nav class="navigation">
+      <table>
+        <tr>
+          <!-- Homepage is the active/current page -->
+          <td><a href="index.html" class="active">Home</a></td>
+          <td><a href="about_us.html">About Us</a></td>
+          <td><a href="services_or_products.html">Products</a></td>
+          <td><a href="enquiry.html">Enquiry</a></td>
+          <td><a href="contact_us.html">Contact Us</a></td>
+        </tr>
+      </table>
+    </nav>
+    <!-- ===== END NAVIGATION ===== -->
+
+  </header>
+  <!-- ===== END HEADER ===== -->
+
+  <!-- ============================================================
+       HERO SECTION: Full-width banner image with a dark overlay,
+       a large heading, a tagline, and a Shop Now CTA button.
+       This section only appears on the homepage.
+       ============================================================ -->
+  <div class="hero">
+    <!-- Hero image — fills the full viewport width -->
+    <img src="images/hero_image.jpeg" alt="Makro store — South Africa's one-stop wholesale retailer">
+
+    <!-- Dark overlay with centred text and CTA button -->
+    <div class="hero-overlay">
+      <h2>South Africa's One-Stop Shop</h2>
+      <p>Quality products at wholesale prices — groceries, household, and outdoor essentials all under one roof.</p>
+      <!-- CTA button links through to the products page -->
+      <a href="services_or_products.html" class="cta-btn">Shop Now</a>
+    </div>
+  </div>
+  <!-- ===== END HERO SECTION ===== -->
+
+  <!-- ============================================================
+       MAIN: Unique content for the homepage only. Contains the
+       brand introduction cards.
+       ============================================================ -->
+  <main>
+
+    <!-- ==========================================================
+         INTRODUCTION SECTION: Two-column grid displaying brand
+         background and value proposition cards side by side on
+         desktop. Stacks to a single column on mobile.
+         ========================================================== -->
+    <div class="intro-section">
+      <h2>Welcome to Makro</h2>
+      <p>Discover why millions of South Africans trust Makro for everyday shopping and bulk buying.</p>
+
+      <!-- Two-column grid — stacks on mobile via media query -->
+      <div class="intro-grid container">
+
+        <!-- Card 1: Brand background and ownership -->
+        <div class="intro-card">
+          <h3>Our Story</h3>
+          <p>
+            Makro is one of South Africa's leading warehouse retailers, part of the Massmart group.
+            We supply quality products at wholesale prices to both individuals and businesses across
+            the country. Since 1971, Makro has been helping South Africans save more by buying
+            smarter. Today, as part of Massmart and Walmart, we combine bulk buying power with
+            modern retail convenience.
+          </p>
+        </div>
+
+        <!-- Card 2: Value proposition -->
+        <div class="intro-card">
+          <h3>Why Shop at Makro?</h3>
+          <p>
+            Your wholesale retail store offers a wide variety of products — from groceries to
+            household items — making it your true one-stop store. Purchase everything you need
+            in a single visit, saving you time and money. Enjoy exclusive member pricing,
+            extended trading hours, and unbeatable bulk deals across all product categories.
+          </p>
+        </div>
+
+      </div>
+      <!-- ===== END INTRO GRID ===== -->
+    </div>
+    <!-- ===== END INTRODUCTION SECTION ===== -->
+
+  </main>
+  <!-- ===== END MAIN ===== -->
+
+  <!-- ============================================================
+       FOOTER: Appears on ALL five pages. Contains the copyright
+       notice. Must always sit inside <body>, before </body>.
+       ============================================================ -->
+  <footer>
+    <p>&copy; 2026 Makro. All rights reserved.</p>
+  </footer>
+  <!-- ===== END FOOTER ===== -->
+
+</body>
+</html>
