@@ -117,7 +117,7 @@ Makro/
 ---
 
 ## Deployed Website
-The live website is accessible at: **https://makro-poe.netlify.app**
+The live website is accessible at: **https://st10528772.github.io/WEDE_5020/**
 
 ---
 
