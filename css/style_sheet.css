@@ -1,0 +1,1159 @@
+/* ================================================================
+   STYLESHEET: style_sheet.css
+   DESCRIPTION: The single external stylesheet shared across all
+   five pages of the Makro website. Covers the CSS reset, base
+   typography, header, hero section, footer, navigation, layout
+   grid, product cards, enquiry/contact page styles, form styles,
+   and responsive media queries for tablet (768px) and mobile
+   (480px) breakpoints.
+   AUTHOR: [Plaesa Dikolane]
+   STUDENT NUMBER: [st10528772]
+   MODULE: WEDE5020
+   DATE: May 2026
+   ================================================================ */
+
+
+/* ----------------------------------------------------------------
+   1. CSS RESET
+   Removes all default browser margin and padding. Switches every
+   element to border-box sizing so padding and borders are included
+   in the declared width — not added on top of it.
+   ---------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* ----------------------------------------------------------------
+   2. BASE / BODY STYLES
+   Sets the default background colour, font, and text colour used
+   across the entire site. The font stack falls back through
+   safe system fonts if the primary is unavailable.
+   ---------------------------------------------------------------- */
+body {
+  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+  background-color:khaki;
+  color: #222222;
+  line-height: 1.6;
+}
+
+
+/* ----------------------------------------------------------------
+   3. GOOGLE FONTS IMPORT
+   Imports Roboto (body text) and Montserrat (headings) from
+   Google Fonts for a professional typographic hierarchy.
+   ---------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Roboto:wght@400;500&display=swap');
+/*MAKE ALL IMAGES RESPONSIVE*/
+img{
+  width: 100%;
+  height: auto;
+}
+  
+body {
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+}
+
+h1, h2, h3, h4, nav a {
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+
+/* ----------------------------------------------------------------
+   4. TYPOGRAPHY
+   Base styles for headings and paragraphs used across all pages.
+   ---------------------------------------------------------------- */
+
+/* Site brand heading inside <header> — uses Makro red (#CC0000) */
+h1 {
+  font-size: 2rem;
+  color: #CC0000;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 20px 0;
+}
+
+/* Primary section headings inside <main> */
+main h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #CC0000;
+  margin: 30px 0 12px;
+  padding: 0 20px;
+  border-left: 5px solid #CC0000;
+}
+
+/* Secondary headings inside <main> — dark for visual hierarchy */
+main h3 {
+  font-size: 1.3rem;
+  color: #1a1a1a;
+  font-weight: 600;
+  margin: 20px 0 8px;
+  padding: 0 20px;
+}
+
+/* Tertiary headings inside <main> — used for department/category titles */
+main h4 {
+  font-size: 1.1rem;
+  color: #CC0000;
+  font-weight: 700;
+  margin: 16px 0 6px;
+  padding: 0 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Base paragraph styling for readability */
+p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #444444;
+  margin-bottom: 14px;
+  padding: 0 20px;
+}
+
+/* Unordered list styling inside <main> */
+main ul {
+  list-style-type: disc;
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+
+/* Individual list items */
+main ul li {
+  font-size: 0.95rem;
+  padding: 4px 0;
+  color: #444444;
+}
+
+/* Links — base style (unstyled links inherit text colour) */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* ----------------------------------------------------------------
+   5. HEADER
+   The <header> appears at the top of every page and contains
+   the logo, site name, navigation, and hero image (index.html).
+   Uses flexbox to align the logo and brand name side by side.
+   ---------------------------------------------------------------- */
+header {
+  background-color: yellow;
+  border-bottom: 3px solid #CC0000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  padding:1rem
+}
+
+/* Flex row to place logo and h1 side by side */
+.header-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  background-color: #ffffff;
+}
+
+/* Makro logo — constrained size, no distortion */
+.makro_logo {
+  width: 140px;
+  height: auto;
+  display: block;
+}
+
+
+/* ----------------------------------------------------------------
+   6. HERO SECTION (index.html only)
+   Full-width banner image with an overlay, centred heading,
+   tagline, and a call-to-action button.
+   ---------------------------------------------------------------- */
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  max-height: 480px;
+}
+
+/* Hero image fills the container width */
+.hero img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Semi-transparent dark overlay sits on top of the image */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.52);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Hero heading — large white text over the overlay */
+.hero-overlay h2 {
+  font-size: 2.6rem;
+  color: #ffffff;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border: none;
+  margin: 0 0 12px;
+  padding: 0;
+}
+
+/* Hero tagline */
+.hero-overlay p {
+  font-size: 1.1rem;
+  color: #f0f0f0;
+  margin-bottom: 24px;
+  padding: 0;
+  max-width: 600px;
+}
+
+
+/* ----------------------------------------------------------------
+   7. NAVIGATION BAR
+   Full-width horizontal nav bar styled in Makro red. Links are
+   white and highlight in a darker red on hover. The active page
+   link uses a bold underline to show the current location.
+   ---------------------------------------------------------------- */
+.navigation {
+  background-color: #CC0000;
+  width: 100%;
+}
+
+/* Remove the table border and make it full-width */
+.navigation table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Each nav cell takes equal width */
+.navigation td {
+  text-align: center;
+}
+
+/* Navigation link fills the full clickable cell area */
+.navigation a {
+  display: block;
+  width: 100%;
+  padding: 14px 8px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Hover state — darkens the cell when the user mouses over */
+.navigation a:hover {
+  background-color: #990000;
+  color: #ffffff;
+}
+
+/* Active state — bold white text with a yellow bottom border
+   shows the visitor which page they are currently on */
+.navigation a.active {
+  background-color: #990000;
+  color: #ffffff;
+  font-weight: 800;
+  border-bottom: 3px solid #FFD700;
+}
+
+
+/* ----------------------------------------------------------------
+   8. CALL-TO-ACTION BUTTON
+   Shared by the hero Shop Now button and the homepage
+   "Your favourite one-stop shop" button.
+   ---------------------------------------------------------------- */
+.cta-btn,
+a.cta {
+  display: inline-block;
+  background-color: #CC0000;
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+  border: none;
+}
+
+.cta-btn:hover,
+a.cta:hover {
+  background-color: #990000;
+  transform: translateY(-2px);
+}
+
+/* Wrapper button — strips browser default button styles */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 10px 20px 20px;
+}
+
+
+/* ----------------------------------------------------------------
+   9. HOMEPAGE LAYOUT (index.html)
+   Two-column CSS Grid for the introduction cards on the homepage.
+   Stacks to a single column on mobile via the media query below.
+   ---------------------------------------------------------------- */
+
+/* Section container wrapping the introduction cards */
+.intro-section {
+  padding: 40px 20px;
+  background-color: #ffffff;
+}
+
+/* Two-column grid for the intro cards */
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Individual intro card */
+.intro-card {
+  background-color:khaki;
+  border: 1px solid #e0e0e0;
+  border-left: 4px solid #CC0000;
+  border-radius: 6px;
+  padding: 20px 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Card lifts on hover */
+.intro-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Reset padding/margin inside cards so text sits flush */
+.intro-card p {
+  padding: 0;
+  margin: 0;
+}
+
+
+/* ----------------------------------------------------------------
+   10. ABOUT US PAGE (about_us.html)
+   Two-column flexbox: text sections fill a readable container.
+   Team sections are separated with a subtle top border.
+   ---------------------------------------------------------------- */
+.about-section {
+  background-color: #ffffff;
+  padding: 20px 0 40px;
+}
+
+/* Consistent text container on all interior pages */
+.page-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+  background-color: #ffffff;
+}
+
+/* Team section separator */
+main section + section {
+  border-top: 1px solid #eeeeee;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+
+/* ----------------------------------------------------------------
+   11. PRODUCT IMAGES (services_or_products.html)
+   class="style" applied to product images gives consistent
+   borders, rounded corners, hover colour change and shadow.
+   ---------------------------------------------------------------- */
+img.style {
+  padding: 6px;
+  border: 3px solid #CC0000;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.18);
+  background-color: #ffffff;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  display: inline-block;
+  margin: 8px;
+  max-width: 100%;
+  height: auto;
+  width: 400px;
+}
+
+/* Image scales up and border changes to dark red on hover */
+img.style:hover {
+  border-color: #990000;
+  transform: scale(1.04);
+  box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.26);
+}
+
+/* Product section wrapper on products page */
+.product-section {
+  background-color: #ffffff;
+  padding: 20px 0;
+  margin-bottom: 10px;
+}
+
+/* Product images row — wraps to a new row on smaller screens */
+.product-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 20px 20px;
+}
+
+
+/* ----------------------------------------------------------------
+   12. ENQUIRY PAGE (enquiry.html)
+   The body.enquiry class activates only on the Enquiry page.
+   A retail background image fills the page; the form is centred.
+   ---------------------------------------------------------------- */
+body.enquiry {
+  background-image: url(../images/groceries_shopping_retail.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Overlay for the enquiry page main so the form is readable */
+body.enquiry main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px 60px;
+}
+
+/* White card behind the Google Form */
+body.enquiry .form-card {
+  background-color: rgba(255, 255, 255, 0.96);
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+body.enquiry main h2 {
+  color: #CC0000;
+  border-left-color: #CC0000;
+}
+
+body.enquiry main p {
+  color: #333333;
+  padding: 0;
+}
+
+/* Google Form iframe — responsive */
+body.enquiry iframe {
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+}
+
+
+/* ----------------------------------------------------------------
+   13. CONTACT PAGE (contact_us.html)
+   Stacked sections with full-width maps. Contact info in a clean
+   card. Maps displayed in a responsive grid.
+   ---------------------------------------------------------------- */
+body.contact_us main {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Contact info card */
+.contact-info-card {
+  background-color: #CC0000;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 24px 30px;
+  margin-bottom: 30px;
+}
+
+.contact-info-card h3,
+.contact-info-card h4 {
+  color: #ffffff;
+  padding: 0;
+  margin-bottom: 8px;
+}
+
+.contact-info-card p {
+  color: #f5f5f5;
+  padding: 0;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+/* Response time notice */
+.response {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 16px 0;
+  color: #CC0000;
+  padding: 12px;
+  background-color: #fff3f3;
+  border-left: 4px solid #CC0000;
+  border-radius: 4px;
+}
+
+/* Maps grid — 2 columns on desktop */
+.maps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 10px 0 20px;
+}
+
+/* Each map item */
+.map-item {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+}
+
+.map-item h4 {
+  background-color: #CC0000;
+  color: #ffffff;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Map iframes fill their container */
+.map-item iframe {
+  width: 100%;
+  height: 260px;
+  border: none;
+  display: block;
+}
+
+/* Contact form iframe */
+body.contact_us main iframe.form {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+
+/* ----------------------------------------------------------------
+   14. FOOTER
+   Sits at the bottom of every page. Dark background with white
+   text and three-column grid on desktop.
+   ---------------------------------------------------------------- */
+footer {
+  background-color: #1a1a1a;
+  color: #cccccc;
+  text-align: center;
+  padding: 24px 20px;
+  margin-top: 40px;
+  border-top: 4px solid #CC0000;
+}
+
+footer p {
+  color: #cccccc;
+  font-size: 0.85rem;
+  padding: 0;
+  margin: 0;
+}
+
+/* Strip the table border from the footer table */
+footer table {
+  border: none !important;
+  margin: 0 auto;
+}
+
+footer table td {
+  border: none !important;
+  padding: 0;
+}
+
+
+/* ----------------------------------------------------------------
+   15. UTILITY CLASSES
+   ---------------------------------------------------------------- */
+
+/* Section wrapper to add consistent vertical spacing */
+.section-wrapper {
+  padding: 40px 20px;
+  background-color: #ffffff;
+  margin-bottom: 8px;
+}
+
+/* Centred container with max-width */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Divider rule used between sections */
+.divider {
+  border: none;
+  border-top: 2px solid #eeeeee;
+  margin: 20px 0;
+}
+
+
+/* ----------------------------------------------------------------
+   16. PART 3 ADDITIONS — JAVASCRIPT-DRIVEN COMPONENTS
+   Styles for the search/filter toolbar, image lightbox, FAQ
+   accordion, scroll-in animations, native form fields, and the
+   interactive Leaflet branch map added in Part 3.
+   ---------------------------------------------------------------- */
+
+/* --- Product search & category filter toolbar --- */
+.product-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  padding: 16px 0;
+}
+
+#productSearch {
+  flex: 1 1 240px;
+  padding: 10px 14px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+#productSearch:focus {
+  outline: none;
+  border-color: #CC0000;
+  box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.15);
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-btn {
+  background-color: #ffffff;
+  border: 1px solid #CC0000;
+  color: #CC0000;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin: 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.filter-btn:hover {
+  background-color: #fff3f3;
+}
+
+.filter-btn.active {
+  background-color: #CC0000;
+  color: #ffffff;
+}
+
+/* Sections hidden by the search/filter JS */
+.product-section.filtered-out {
+  display: none;
+}
+
+.no-results {
+  text-align: center;
+  font-style: italic;
+  color: #666666;
+  padding: 20px 0;
+}
+
+/* --- Scroll-in fade/slide animation --- */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Image gallery lightbox --- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.lightbox[hidden] {
+  display: none !important;
+}
+
+body.lightbox-open {
+  overflow: hidden;
+}
+
+.lightbox-image {
+  max-width: 90vw;
+  max-height: 80vh;
+  width: auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-caption {
+  color: #ffffff;
+  margin-top: 14px;
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 0;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: none;
+  font-size: 1.6rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  transition: background-color 0.2s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.lightbox-close {
+  top: 20px;
+  right: 20px;
+}
+
+.lightbox-prev {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-next {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* --- FAQ accordion --- */
+.faq-section {
+  background-color: #ffffff;
+  padding: 10px 0 20px;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #eeeeee;
+}
+
+.accordion-trigger {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 16px 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: #222222;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin: 0;
+}
+
+.accordion-trigger:hover,
+.accordion-trigger.open {
+  color: #CC0000;
+}
+
+.accordion-icon {
+  font-size: 1.3rem;
+  color: #CC0000;
+  transition: transform 0.25s ease;
+}
+
+.accordion-trigger.open .accordion-icon {
+  transform: rotate(45deg); /* turns the "+" into an "x" */
+}
+
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-panel p {
+  padding: 0 4px 16px;
+  color: #444444;
+}
+
+/* --- Interactive branch map (Leaflet) --- */
+.branch-select {
+  display: block;
+  margin: 12px 0;
+  padding: 10px 14px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: 'Roboto', Arial, sans-serif;
+  max-width: 320px;
+}
+
+.branch-map {
+  width: 100%;
+  height: 420px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  margin-bottom: 20px;
+  z-index: 1; /* keeps Leaflet's own internal layers contained */
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* --- Native form styling (enquiry.html and contact_us.html) --- */
+.site-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: #222222;
+  font-size: 0.92rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 0.95rem;
+  background-color: #ffffff;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #CC0000;
+  box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.15);
+}
+
+.form-group input.invalid,
+.form-group select.invalid,
+.form-group textarea.invalid {
+  border-color: #cc0000;
+  background-color: #fff5f5;
+}
+
+.error-message {
+  color: #cc0000;
+  font-size: 0.82rem;
+  min-height: 1em;
+}
+
+.response-box {
+  background-color: #f0fff0;
+  border-left: 4px solid #2e7d32;
+  color: #1b5e20;
+  padding: 14px 16px;
+  border-radius: 4px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.site-form button[type="submit"] {
+  align-self: flex-start;
+  margin: 4px 0 0;
+}
+
+.site-form button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* ----------------------------------------------------------------
+   17. RESPONSIVE MEDIA QUERY — TABLET (max-width: 768px)
+   Overrides desktop rules for screens 768px wide or narrower.
+   ---------------------------------------------------------------- */
+@media screen and (max-width: 768px) {
+
+  /* Reduce hero image height on tablets */
+  .hero img,
+  .hero {
+    max-height: 320px;
+  }
+
+  .hero img {
+    height: 320px;
+  }
+
+  /* Smaller hero heading */
+  .hero-overlay h2 {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+
+  .hero-overlay p {
+    font-size: 0.95rem;
+  }
+
+  /* Intro cards stack to a single column */
+  .intro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Maps grid stacks to a single column */
+  .maps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Reduce heading sizes */
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  main h2 {
+    font-size: 1.4rem;
+  }
+
+  main h3 {
+    font-size: 1.1rem;
+  }
+
+  /* Nav font size reduces so all five links fit one row */
+  .navigation a {
+    font-size: 0.75rem;
+    padding: 12px 4px;
+    letter-spacing: 0;
+  }
+
+  /* iframes scale to full width on tablet */
+  iframe {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .header-top {
+    flex-wrap: wrap;
+  }
+
+  /* Filter buttons wrap neatly and the search box takes a full row */
+  .product-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Branch map shortens slightly on tablets */
+  .branch-map {
+    height: 340px;
+  }
+}
+/* ===== END TABLET MEDIA QUERY ===== */
+
+
+/* ----------------------------------------------------------------
+   18. RESPONSIVE MEDIA QUERY — MOBILE (max-width: 480px)
+   Overrides rules further for screens 480px wide or narrower.
+   ---------------------------------------------------------------- */
+@media screen and (max-width: 480px) {
+
+  /* Shorter hero on mobile */
+  .hero img,
+  .hero {
+    max-height: 220px;
+  }
+
+  .hero img {
+    height: 220px;
+  }
+
+  .hero-overlay h2 {
+    font-size: 1.2rem;
+  }
+
+  .hero-overlay p {
+    font-size: 0.85rem;
+    display: none; /* Hide tagline on very small screens to reduce clutter */
+  }
+
+  /* CTA button fills full width on mobile */
+  .cta-btn,
+  a.cta {
+    display: block;
+    width: calc(100% - 40px);
+    margin: 0 20px;
+    text-align: center;
+  }
+
+  /* Stack nav links vertically on very small screens */
+  .navigation table,
+  .navigation tr {
+    display: block;
+    width: 100%;
+  }
+
+  .navigation td {
+    display: block;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .navigation a {
+    font-size: 0.85rem;
+    padding: 12px 16px;
+    text-align: left;
+  }
+
+  /* Reduce heading sizes further */
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  main h2 {
+    font-size: 1.2rem;
+  }
+
+  /* Product images stack, full-width */
+  .product-images {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  img.style {
+    width: 100%;
+    height: auto;
+    margin: 8px 0;
+  }
+
+  /* Contact info card padding reduces on mobile */
+  .contact-info-card {
+    padding: 16px;
+  }
+
+  /* Smaller, closer-in lightbox controls so they don't overlap the image */
+  .lightbox-close,
+  .lightbox-prev,
+  .lightbox-next {
+    width: 38px;
+    height: 38px;
+    font-size: 1.2rem;
+  }
+
+  .lightbox-prev {
+    left: 8px;
+  }
+
+  .lightbox-next {
+    right: 8px;
+  }
+
+  /* Branch map shortens further on small phones */
+  .branch-map {
+    height: 280px;
+  }
+}
+/* ===== END MOBILE MEDIA QUERY ===== */
+
+
+/* Part 3 Mobile Hamburger Menu */
+.menu-toggle{
+ display:none;
+ background:#CC0000;
+ color:white;
+ border:none;
+ padding:12px 16px;
+ font-size:1.5rem;
+ cursor:pointer;
+ width:100%;
+}
+
+@media (max-width:768px){
+ .menu-toggle{display:block;}
+ .navigation{display:none;}
+ .navigation.show{display:block;}
+ .navigation table,
+ .navigation tr,
+ .navigation td{
+   display:block;
+   width:100%;
+ }
+ .navigation a{
+   display:block;
+   padding:12px;
+   text-align:center;
+ }
+}
