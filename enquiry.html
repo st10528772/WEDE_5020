@@ -17,6 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Submit a product or service enquiry to Makro South Africa. We will respond within 24 hours.">
   <meta name="keywords" content="Makro enquiry, contact form, product enquiry, South Africa, wholesale, customer service">
+  <link rel="canonical" href="https://makro-poe.netlify.app/enquiry.html">
   <title>Enquiry | Makro</title>
   <link rel="stylesheet" href="css/style_sheet.css">
 </head>
@@ -34,6 +35,7 @@
       <img src="images/makro_logo.png" alt="Makro Logo" class="makro_logo">
       <h1>Makro</h1>
     </div>
+    <button class="menu-toggle" aria-label="Open navigation menu">☰</button>
     <nav class="navigation">
       <table>
         <tr>
@@ -61,22 +63,66 @@
       <p>Please complete the form below. We will get back to you within 24 hours.</p>
 
       <!-- ========================================================
-           GOOGLE FORM EMBED: Embeds the Makro customer enquiry
-           form. The iframe src points to the Google Forms embed
-           URL. title is required for screen reader accessibility.
-           width is set to 100% via CSS to be responsive.
+           NATIVE ENQUIRY FORM (Part 3 — replaces the Part 2 Google
+           Form embed with a real HTML form so it can be validated
+           and processed with JavaScript, per the Part 3 brief).
+           Validation and submission handling live in js/forms.js.
            ======================================================== -->
-      <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSfTgQbLN1yqiCkL_MBMBNFD15LDkX7irCifVcFDzjQqNLZqtA/viewform?embedded=true"
-        width="100%"
-        height="1488"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0"
-        title="Makro Customer Enquiry Form">
-        Loading…
-      </iframe>
-      <!-- ===== END GOOGLE FORM ===== -->
+      <form id="enquiryForm" class="site-form" novalidate>
+
+        <div class="form-group">
+          <label for="enquiryName">Full Name</label>
+          <input type="text" id="enquiryName" name="enquiryName" required minlength="2" aria-describedby="enquiryNameError">
+          <span class="error-message" id="enquiryNameError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="enquiryEmail">Email Address</label>
+          <input type="email" id="enquiryEmail" name="enquiryEmail" required aria-describedby="enquiryEmailError">
+          <span class="error-message" id="enquiryEmailError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="enquiryPhone">Phone Number</label>
+          <input type="tel" id="enquiryPhone" name="enquiryPhone" required data-validate="phone" placeholder="082 123 4567" aria-describedby="enquiryPhoneError">
+          <span class="error-message" id="enquiryPhoneError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="enquiryType">What is your enquiry about?</label>
+          <select id="enquiryType" name="enquiryType" required aria-describedby="enquiryTypeError">
+            <option value="" disabled selected>Select an enquiry type…</option>
+            <option value="Product Availability">Product Availability</option>
+            <option value="Pricing">Pricing</option>
+            <option value="Bulk Order">Bulk Order</option>
+            <option value="General Service">General Service</option>
+          </select>
+          <span class="error-message" id="enquiryTypeError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="enquiryCategory">Product Category</label>
+          <select id="enquiryCategory" name="enquiryCategory" required aria-describedby="enquiryCategoryError">
+            <option value="" disabled selected>Select a category…</option>
+            <option value="groceries">Groceries</option>
+            <option value="household">Household</option>
+            <option value="outdoor">Outdoor</option>
+          </select>
+          <span class="error-message" id="enquiryCategoryError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="enquiryMessage">Tell us more</label>
+          <textarea id="enquiryMessage" name="enquiryMessage" rows="4" required aria-describedby="enquiryMessageError"></textarea>
+          <span class="error-message" id="enquiryMessageError"></span>
+        </div>
+
+        <button type="submit" class="cta-btn">Submit Enquiry</button>
+
+        <!-- Populated dynamically by js/forms.js once the enquiry is processed -->
+        <div id="enquiryResponse" class="response-box" role="status" hidden></div>
+      </form>
+      <!-- ===== END ENQUIRY FORM ===== -->
     </div>
   </main>
   <!-- ===== END MAIN ===== -->
@@ -85,5 +131,6 @@
     <p>&copy; 2026 Makro. All rights reserved.</p>
   </footer>
 
+  <script src="js/forms.js" defer></script>
 </body>
 </html>

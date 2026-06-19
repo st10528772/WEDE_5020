@@ -17,8 +17,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Contact Makro South Africa. Find our phone number, email, trading hours, and branch locations in Woodmead, Centurion, Silver Lakes, Mpumalanga, Bloemfontein, and Cape Town.">
   <meta name="keywords" content="Makro contact, Makro branches, Woodmead, Centurion, Silver Lakes, Bloemfontein, Cape Gate, trading hours, South Africa">
+  <link rel="canonical" href="https://makro-poe.netlify.app/contact_us.html">
   <title>Contact Us | Makro</title>
   <link rel="stylesheet" href="css/style_sheet.css">
+  <!-- Leaflet.js stylesheet — powers the interactive branch map below (Part 3) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 
 <!-- body class="contact_us" activates the flex-column layout for
@@ -34,6 +37,7 @@
       <img src="images/makro_logo.png" alt="Makro Logo" class="makro_logo">
       <h1>Makro</h1>
     </div>
+    <button class="menu-toggle" aria-label="Open navigation menu">☰</button>
     <nav class="navigation">
       <table>
         <tr>
@@ -80,23 +84,52 @@
     <!-- ===== END CONTACT INFO CARD ===== -->
 
     <!-- ==========================================================
-         CONTACT FORM: Embedded Google Form for customer messages.
-         class="form" applies the centred, max-width style from CSS.
+         CONTACT FORM (Part 3 — replaces the Part 2 Google Form
+         embed with a native HTML form, validated and processed
+         with JavaScript in js/forms.js). On successful validation
+         the message is compiled into an email and opened via a
+         mailto: link addressed to Makro's customer care inbox.
          ========================================================== -->
     <section>
       <div class="response">YOU WILL RECEIVE A RESPONSE WITHIN 24 HOURS</div>
 
-      <iframe
-        class="form"
-        src="https://docs.google.com/forms/d/e/1FAIpQLSep6L3UGVoKMecTy41jVskuraPcoEjbRr7GkWOxckpJ1n5kjg/viewform?embedded=true"
-        width="100%"
-        height="1123"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0"
-        title="Makro Contact Form">
-        Loading…
-      </iframe>
+      <form id="contactForm" class="site-form" novalidate>
+
+        <div class="form-group">
+          <label for="contactName">Full Name</label>
+          <input type="text" id="contactName" name="contactName" required minlength="2" aria-describedby="contactNameError">
+          <span class="error-message" id="contactNameError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="contactEmail">Email Address</label>
+          <input type="email" id="contactEmail" name="contactEmail" required aria-describedby="contactEmailError">
+          <span class="error-message" id="contactEmailError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="contactSubject">Subject</label>
+          <select id="contactSubject" name="contactSubject" required aria-describedby="contactSubjectError">
+            <option value="" disabled selected>Select a subject…</option>
+            <option value="General Enquiry">General Enquiry</option>
+            <option value="Complaint">Complaint</option>
+            <option value="Compliment">Compliment</option>
+            <option value="Other">Other</option>
+          </select>
+          <span class="error-message" id="contactSubjectError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="contactMessage">Message</label>
+          <textarea id="contactMessage" name="contactMessage" rows="5" required aria-describedby="contactMessageError"></textarea>
+          <span class="error-message" id="contactMessageError"></span>
+        </div>
+
+        <button type="submit" class="cta-btn">Send Message</button>
+
+        <!-- Populated dynamically by js/forms.js once the mailto link is generated -->
+        <div id="contactResponse" class="response-box" role="status" hidden></div>
+      </form>
     </section>
     <!-- ===== END CONTACT FORM ===== -->
 
@@ -183,6 +216,32 @@
     </section>
     <!-- ===== END BRANCH LOCATIONS ===== -->
 
+    <!-- ==========================================================
+         INTERACTIVE BRANCH MAP (Part 3 — JavaScript / Leaflet.js)
+         A single interactive map plotting all six branches as
+         clickable markers, built with the open-source Leaflet
+         library. The dropdown flies the map to whichever branch
+         is selected. Logic lives in js/map.js.
+         ========================================================== -->
+    <section>
+      <h3>Find Us On An Interactive Map</h3>
+      <p>Click any marker for branch details, or jump straight to a branch using the dropdown below.</p>
+
+      <label for="branchSelect" class="visually-hidden">Jump to a branch</label>
+      <select id="branchSelect" class="branch-select">
+        <option value="">Jump to a branch…</option>
+        <option value="0">Makro Woodmead</option>
+        <option value="1">Makro Centurion</option>
+        <option value="2">Makro Silver Lakes</option>
+        <option value="3">Makro Mpumalanga</option>
+        <option value="4">Makro Bloemfontein</option>
+        <option value="5">Makro Cape Gate</option>
+      </select>
+
+      <div id="branchMap" class="branch-map" aria-label="Interactive map of all six Makro branch locations"></div>
+    </section>
+    <!-- ===== END INTERACTIVE BRANCH MAP ===== -->
+
   </main>
   <!-- ===== END MAIN ===== -->
 
@@ -190,5 +249,9 @@
     <p>&copy; 2026 Makro. All rights reserved.</p>
   </footer>
 
+  <!-- Leaflet.js library — powers the interactive map above -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/map.js" defer></script>
+  <script src="js/forms.js" defer></script>
 </body>
 </html>

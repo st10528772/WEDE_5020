@@ -20,6 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Browse Makro's wide product range — groceries, household items, and outdoor equipment — all at wholesale prices.">
   <meta name="keywords" content="Makro products, groceries, household items, outdoor furniture, camping, kitchenware, wholesale, South Africa">
+  <link rel="canonical" href="https://makro-poe.netlify.app/services_or_products.html">
   <title>Products | Makro</title>
   <link rel="stylesheet" href="css/style_sheet.css">
 </head>
@@ -35,6 +36,7 @@
       <img src="images/makro_logo.png" alt="Makro Logo" class="makro_logo">
       <h1>Makro</h1>
     </div>
+    <button class="menu-toggle" aria-label="Open navigation menu">☰</button>
     <nav class="navigation">
       <table>
         <tr>
@@ -61,9 +63,25 @@
       <p>Find out more about our quality products that we stock for everyday needs.</p>
 
       <!-- ==========================================================
+           PRODUCT SEARCH & CATEGORY FILTER (Part 3 — JavaScript)
+           Lets visitors search by keyword or filter by category.
+           Filtering is handled client-side in js/script.js.
+           ========================================================== -->
+      <div class="product-toolbar">
+        <input type="search" id="productSearch" placeholder="Search products… e.g. dairy, camping, cleaning" aria-label="Search products">
+        <div class="filter-buttons" role="group" aria-label="Filter products by category">
+          <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter-btn" data-filter="groceries" aria-pressed="false">Groceries</button>
+          <button type="button" class="filter-btn" data-filter="household" aria-pressed="false">Household</button>
+          <button type="button" class="filter-btn" data-filter="outdoor" aria-pressed="false">Outdoor</button>
+        </div>
+      </div>
+      <p id="noResultsMessage" class="no-results" hidden>No products match your search — try a different keyword or choose "All".</p>
+
+      <!-- ==========================================================
            GROCERIES SECTION
            ========================================================== -->
-      <section class="product-section">
+      <section class="product-section fade-in-section" data-category="groceries">
         <h3>Groceries</h3>
 
         <!-- Product images — class="style" adds styled border and hover effect -->
@@ -71,17 +89,17 @@
           <img src="images/dairy_products.jpg"
                srcset="images/dairy_products-400.png 400w, images/dairy_products-800.png 800w"
                alt="Dairy Products"
-               class="style">
+               loading="lazy" class="style">
           <img src="images/fruits_and_veggies.jpg"
                srcset="images/fruits_and_veggies-400.png 400w, images/fruits_and_veggies-800.png 800w"
                alt="Fruits and vegetables" 
-               class="style">
+               loading="lazy" class="style">
           <img src="images/frozen_foods.png" 
                srcset="images/frozen_foods-400.png 400w, images/frozen_foods-800.png 800w"      
                alt="Frozen food"  
-               class="style">
-          <img src="images/snacks_and_drinks.jpg"  alt="Snacks and drinks"  class="style">
-          <img src="images/dry goods.png"          alt="Dry and staple foods" class="style">
+               loading="lazy" class="style">
+          <img src="images/snacks_and_drinks.jpg"  alt="Snacks and drinks"  loading="lazy" class="style">
+          <img src="images/dry-goods.png"          alt="Dry and staple foods" loading="lazy" class="style">
         </div>
 
         <h4>Overview</h4>
@@ -113,14 +131,14 @@
       <!-- ==========================================================
            HOUSEHOLD ITEMS SECTION
            ========================================================== -->
-      <section class="product-section">
+      <section class="product-section fade-in-section" data-category="household">
         <h3>Household Items</h3>
 
         <!-- Product images for kitchenware and containers -->
         <div class="product-images">
-          <img src="images/kitchenware.jpg"          alt="Kitchenware"       width="200" height="200" class="style">
-          <img src="images/containers.jpg"           alt="Food containers"   width="200" height="200" class="style">
-          <img src="images/cleaning supplies.jpg"    alt="Cleaning supplies" width="200" height="200" class="style">
+          <img src="images/kitchenware.jpg"          alt="Kitchenware"       width="200" height="200" loading="lazy" class="style">
+          <img src="images/containers.jpg"           alt="Food containers"   width="200" height="200" loading="lazy" class="style">
+          <img src="images/cleaning-supplies.jpg"    alt="Cleaning supplies" width="200" height="200" class="style" loading="lazy">
         </div>
 
         <!-- --------------------------------------------------------
@@ -136,7 +154,7 @@
           data-instgrm-version="14"
           style="max-width:326px; min-width:326px;">
           <a href="https://www.instagram.com/reel/DRhX9dCjgxW/?utm_source=ig_embed&amp;utm_campaign=loading"
-             target="_blank">View this post on Instagram</a>
+             target="_blank" rel="noopener noreferrer">View this post on Instagram</a>
         </blockquote>
         <!-- External Instagram embed script — required to render the blockquote above -->
         <script async src="//www.instagram.com/embed.js"></script>
@@ -168,13 +186,13 @@
       <!-- ==========================================================
            OUTDOOR ITEMS SECTION
            ========================================================== -->
-      <section class="product-section">
+      <section class="product-section fade-in-section" data-category="outdoor">
         <h3>Outdoor Items</h3>
 
         <!-- Product images for camping and outdoor furniture -->
         <div class="product-images">
-          <img src="images/camping_equipment.webp" alt="Camping equipment"        width="200" height="200" class="style">
-          <img src="images/outdoor_furniture.jpg"  alt="Outdoor patio furniture"  width="200" height="200" class="style">
+          <img src="images/camping_equipment.webp" alt="Camping equipment"        width="200" height="200" loading="lazy" class="style">
+          <img src="images/outdoor_furniture.jpg"  alt="Outdoor patio furniture"  width="200" height="200" loading="lazy" class="style">
         </div>
 
         <!-- --------------------------------------------------------
@@ -230,13 +248,82 @@
       </section>
       <!-- ===== END WHY CHOOSE US SECTION ===== -->
 
+      <hr class="divider">
+
+      <!-- ==========================================================
+           FAQ ACCORDION (Part 3 — JavaScript interactive element)
+           Each question toggles its answer open/closed; handled in
+           js/script.js.
+           ========================================================== -->
+      <section class="faq-section fade-in-section">
+        <h3>Frequently Asked Questions</h3>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Do I need a membership card to shop at Makro?
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-panel">
+              <p>No. Makro stores are open to the public — anyone can walk in and shop, although members of our loyalty programme get extra discounts and rewards.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Can I order groceries or household items online?
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-panel">
+              <p>Yes, selected ranges are available for online order with in-store collection or home delivery in major centres. Use the Enquiry page to check availability at your nearest branch.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              What is your returns policy?
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-panel">
+              <p>Unopened items in their original packaging can be returned within 30 days with a valid receipt. Perishable groceries can only be returned if faulty on collection.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Do you offer bulk discounts for businesses?
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-panel">
+              <p>Yes — bulk pricing tiers apply automatically at checkout for larger quantities on Groceries and Household ranges. Contact us for custom business account pricing.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== END FAQ ACCORDION ===== -->
+
     </div>
   </main>
   <!-- ===== END MAIN ===== -->
+
+  <!-- ==============================================================
+       IMAGE GALLERY LIGHTBOX (Part 3 — JavaScript)
+       Hidden by default. Opens full-screen when a product image is
+       clicked; populated and controlled by js/script.js.
+       ============================================================== -->
+  <div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Product image viewer">
+    <button class="lightbox-close" aria-label="Close image viewer">&times;</button>
+    <button class="lightbox-prev" aria-label="Previous image">&#10094;</button>
+    <img src="" alt="" class="lightbox-img">
+    <button class="lightbox-next" aria-label="Next image">&#10095;</button>
+    <p class="lightbox-caption"></p>
+  </div>
+  <!-- ===== END LIGHTBOX ===== -->
 
   <footer>
     <p>&copy; 2026 Makro. All rights reserved.</p>
   </footer>
 
+  <script src="js/script.js" defer></script>
 </body>
 </html>
